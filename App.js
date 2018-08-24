@@ -1,92 +1,66 @@
-import React from 'react';
-import { Alert, FlatList, Text, View, Button, StyleSheet } from 'react-native';
+import React, { Component } from 'react';
+import { FlatList, Text, TextInput, View, Button, StyleSheet } from 'react-native';
 
-// import t from 'tcomb-form-native'; // 0.6.9
+class MessageTextinput extends Component {
+  render() {
+    return (
+      <TextInput
+        {...this.props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
+        editable = {true}
+        maxLength = {40}
+      />
+    );
+  }
+}
 
-// const Form = t.form.Form;
-
-// const Message = t.struct({
-//   "": t.String,
-// });
-
-// const options = {
-//   fields: {
-//     "": {
-//       error: "Must type a message"
-//     }
-    
-//   }
-// }
-
-export default class App extends React.Component {
+export default class App extends Component {
   constructor(props) {
-    super(props);
+      super(props);
 
-    this.state = { FlatListItems: [
-      {key: 'One'},
-      {key: 'Two'},
-      {key: 'Three'},
-      {key: 'Four'},
-      {key: 'Five'},
-      {key: 'Six'},
-      {key: 'Seven'},
-      {key: 'Eight'},
-      {key: 'Nine'},
-      {key: 'Ten'},
-      {key: 'Eleven'},
-      {key: 'Twelve'}    ]};
+      this.state = { 
+        Placeholder: 'Useless Multiline Placeholder',     
+        FlatListItems: [
+        {key: 'One'},
+        {key: 'Two'},
+        {key: 'Three'},   
+      ]};
   }
 
-  // GetItem (item) {
-  //   Alert.alert(item);
-  // }
+  handleSubmit = () => {
+    const value = this._form.getValue(); // use that ref to get the form value
+    console.log('value: ', value);
+  }
 
-  // handleSubmit = () => {
-  //   const value = this._form.getValue(); // use that ref to get the form value
-  //   console.log('value: ', value);
-  // }
+  renderFlatListItem = ({item}) => {
+    return(
+        <Text 
+            style = {styles.item} 
+            onPress = {(itemKey) => this.onPressItem(item.key)}
+        > 
+            {item.key} 
+        </Text>
+    );
+}
 
   render() {
     return (
       <View style={styles.container}>
         <FlatList
           data = {this.state.FlatListItems}
-          ItemSeparatorComponent = {this.renderFlatListItemSeparator}
           renderItem={this.renderFlatListItem}
         />
-        <Form ref={c =>  this._form = c} type={Message} options={options}/> 
+        <MessageTextinput
+         multiline = {true}
+         numberOfLines = {4}
+         onChangeText={(Placeholder) => this.setState({Placeholder})}
+         value={this.state.Placeholder}
+       />
         <Button title="Send" onPress = {this.handleSubmit}/>
       </View>
     );
   }
 }
 
-renderFlatListItem = ({item}) => {
-  return(
-      <Text 
-          style = {styles.item} 
-          onPress = {(itemKey) => this.onPressItem(item.key)}
-      > 
-          {item.key} 
-      </Text>
-  );
-}
-
-renderFlatListItemSeparator = () => {
-  return (
-      <View
-          style={{
-              height: 1,
-              width: "100%",
-              backgroundColor: "#607D8B",
-          }}
-      />
-  );
-}
-
-onPressItem(itemKey) {
-  Alert.alert(itemKey);
-}
 
 const styles = StyleSheet.create({
   container: {
