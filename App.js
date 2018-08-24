@@ -54,38 +54,39 @@ export default class App extends React.Component {
           ItemSeparatorComponent = {this.renderFlatListItemSeparator}
           renderItem={this.renderFlatListItem}
         />
-        <Form ref={c =>  this._form = c} type={Message} options={options}/> 
+        {/* <Form ref={c =>  this._form = c} type={Message} options={options}/>  */}
         <Button title="Send" onPress = {this.handleSubmit}/>
       </View>
     );
   }
-}
 
-renderFlatListItem = ({item}) => {
-  return(
-      <Text 
-          style = {styles.item} 
-          onPress = {(itemKey) => this.onPressItem(item.key)}
-      > 
-          {item.key} 
-      </Text>
-  );
-}
 
-renderFlatListItemSeparator = () => {
-  return (
-      <View
-          style={{
-              height: 1,
-              width: "100%",
-              backgroundColor: "#607D8B",
-          }}
-      />
-  );
-}
+    renderFlatListItem = ({item}) => {
+        return(
+            <Text 
+                style = {styles.item} 
+                onPress = {(itemKey) => this.onPressItem(item.key)}
+            > 
+                {item.key} 
+            </Text>
+        );
+    }
 
-onPressItem(itemKey) {
-  Alert.alert(itemKey);
+    renderFlatListItemSeparator = () => {
+        return (
+            <View
+                style={{
+                    height: 1,
+                    width: "100%",
+                    backgroundColor: "#607D8B",
+                }}
+            />
+        );
+    }
+
+    onPressItem(itemKey) {
+        Alert.alert(itemKey);
+    }
 }
 
 const styles = StyleSheet.create({
