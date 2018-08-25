@@ -1,66 +1,44 @@
 import React, { Component } from 'react';
-import { FlatList, Text, TextInput, View, Button, StyleSheet } from 'react-native';
-
-class MessageTextinput extends Component {
-  render() {
-    return (
-      <TextInput
-        {...this.props} // Inherit any props passed to it; e.g., multiline, numberOfLines below
-        editable = {true}
-        maxLength = {40}
-      />
-    );
-  }
-}
+import { FlatList, Text, TextInput, View, Button, StyleSheet,  } from 'react-native';
 
 export default class App extends Component {
   constructor(props) {
       super(props);
-
-      this.state = { 
-        Placeholder: 'Useless Multiline Placeholder',     
-        FlatListItems: [
-        {key: 'One'},
-        {key: 'Two'},
-        {key: 'Three'},   
-      ]};
+      const messages = [
+          {key: 'One'},
+          {key: 'Two'},
+          {key: 'Three'},
+          {key: 'pineapple'}   
+      ];
+      
+      this.state = {
+        messages: messages,
+        counter: 0,   
+      }
   }
 
   handleSubmit = () => {
-    const value = this._form.getValue(); // use that ref to get the form value
-    console.log('value: ', value);
+    let messageIndex = this.state.counter + 1;
+    const {messages} = this.state;
+    messages.push({key: this.state.text});
+    this.setState({ messages: messages.slice(0), counter: messageIndex });
   }
-
-  renderFlatListItem = ({item}) => {
-    return(
-        <Text 
-            style = {styles.item} 
-            onPress = {(itemKey) => this.onPressItem(item.key)}
-        > 
-            {item.key} 
-        </Text>
-    );
-}
-
   render() {
     return (
       <View style={styles.container}>
         <FlatList
-          data = {this.state.FlatListItems}
-          renderItem={this.renderFlatListItem}
-        />
-        <MessageTextinput
-         multiline = {true}
-         numberOfLines = {4}
-         onChangeText={(Placeholder) => this.setState({Placeholder})}
-         value={this.state.Placeholder}
-       />
-        <Button title="Send" onPress = {this.handleSubmit}/>
+          data = {this.state.messages}
+          renderItem={({item}) => <Text>{item.key}</Text>}
+          />
+        <TextInput
+         placeholder = {"placeholder text"}
+         onChangeText={(text) => this.setState({text}) }
+         />
+        <Button title="Send" onPress = {this.handleSubmit.bind(this)} />
       </View>
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   container: {
