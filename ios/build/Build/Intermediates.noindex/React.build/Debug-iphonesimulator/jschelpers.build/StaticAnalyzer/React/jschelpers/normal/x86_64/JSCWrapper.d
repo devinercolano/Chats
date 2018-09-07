@@ -1,6 +1,6 @@
 dependencies: \
-  /Users/incito/Desktop/React\ Native/AwesomeProject/node_modules/react-native/ReactCommon/jschelpers/JSCWrapper.cpp \
-  /Users/incito/Desktop/React\ Native/AwesomeProject/node_modules/react-native/ReactCommon/jschelpers/JSCWrapper.h \
-  /Users/incito/Desktop/React\ Native/AwesomeProject/node_modules/react-native/React/../third-party/glog-0.3.4/src/glog/logging.h \
-  /Users/incito/Desktop/React\ Native/AwesomeProject/node_modules/react-native/React/../third-party/glog-0.3.4/src/glog/log_severity.h \
-  /Users/incito/Desktop/React\ Native/AwesomeProject/node_modules/react-native/React/../third-party/glog-0.3.4/src/glog/vlog_is_on.h
+  /Users/incito/Desktop/React\ Native/AwesomeProject/Chats/node_modules/react-native/ReactCommon/jschelpers/JSCWrapper.cpp \
+  /Users/incito/Desktop/React\ Native/AwesomeProject/Chats/node_modules/react-native/ReactCommon/jschelpers/JSCWrapper.h \
+  /Users/incito/Desktop/React\ Native/AwesomeProject/Chats/node_modules/react-native/React/../third-party/glog-0.3.4/src/glog/logging.h \
+  /Users/incito/Desktop/React\ Native/AwesomeProject/Chats/node_modules/react-native/React/../third-party/glog-0.3.4/src/glog/log_severity.h \
+  /Users/incito/Desktop/React\ Native/AwesomeProject/Chats/node_modules/react-native/React/../third-party/glog-0.3.4/src/glog/vlog_is_on.h

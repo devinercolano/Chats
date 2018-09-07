@@ -1,3 +1,3 @@
 dependencies: \
-  /Users/incito/Desktop/React\ Native/AwesomeProject/node_modules/react-native/ReactCommon/jsinspector/InspectorInterfaces.cpp \
-  /Users/incito/Desktop/React\ Native/AwesomeProject/node_modules/react-native/ReactCommon/jsinspector/InspectorInterfaces.h
+  /Users/incito/Desktop/React\ Native/AwesomeProject/Chats/node_modules/react-native/ReactCommon/jsinspector/InspectorInterfaces.cpp \
+  /Users/incito/Desktop/React\ Native/AwesomeProject/Chats/node_modules/react-native/ReactCommon/jsinspector/InspectorInterfaces.h
