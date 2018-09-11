@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FlatList, Text, TextInput, View, Button, StyleSheet,  } from 'react-native';
+import { FlatList, Text, TextInput, View, Button, StyleSheet, AppRegistry } from 'react-native';
 
 export default class App extends Component {
   constructor(props) {
